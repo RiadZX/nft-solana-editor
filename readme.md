@@ -1,7 +1,7 @@
 ## How to use
-Make sure the script is outside the 2 folders
+Make sure the script is outside the 2 folders, use launchmynft generator to get the art. only works with launchmynft generator
 ```
-script.py
+editMetaData.py
 ./images
 ./metadata
 ```
