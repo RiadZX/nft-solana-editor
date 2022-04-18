@@ -1,15 +1,25 @@
 import os
 import json
+import random
 from natsort import natsorted
+from termcolor import cprint 
 
 path = natsorted(os.listdir("./metadata"))
 imagePath = natsorted(os.listdir("./images"))
 startFrom = int(input("What should the starting number be?)\n"))
 print(startFrom)
 i = startFrom
+colors = [
+    "red",
+    "green",
+    "yellow",
+    "blue",
+    "magenta",
+    "cyan",
+    "white"]
 
 def updateJsonFile(filename):
-    global i
+    global i,colors
     jsonFile = open(filename, "r+") # Open the JSON file for reading
     
     data = json.load(jsonFile) # Read the JSON into the buffer
@@ -54,7 +64,8 @@ def updateJsonFile(filename):
     jsonFile.write(json.dumps(data))
     jsonFile.close()
     i+=1
-    print(f"SUCCESS | {name}  |{image} |\n")
+    
+    cprint(f"SUCCESS | {name}  |{image} |\n",random.choice(colors), attrs=['bold'])
 
 def updateImageFile(filename):
     global i
